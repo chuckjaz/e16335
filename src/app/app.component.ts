@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
+
+class Foo implements OnInit {
+    info = 'not initialized'
+    ngOnInit() {
+        this.info = 'initialized'
+    }
+}
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    template: 'App works: {{info}}',
 })
-export class AppComponent {
-  title = 'app works!';
-}
+export class AppComponent extends Foo {}
+
